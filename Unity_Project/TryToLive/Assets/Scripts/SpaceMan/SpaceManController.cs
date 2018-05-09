@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpaceManController : MonoBehaviour {
 
     Rigidbody2D rb2D;
-    Vector2 startDrift = new Vector2(5,4);
+    Vector2 startDrift = new Vector2(2.5f,2);
     public GameObject rightArmJoint;
     public GameObject leftArmJoint;
 
@@ -53,10 +53,6 @@ public class SpaceManController : MonoBehaviour {
     {
         horizontal2 = Input.GetAxis("Horizontal2");
         vertical2 = Input.GetAxis("Vertical2");
-        tempPosBloop.y = transform.position.y + -vertical2;
-        tempPosBloop.x = transform.position.x + horizontal2;
-        bloopTester.transform.position = tempPosBloop;
-
         direction.y = horizontal2;
         direction.x = -vertical2;
         direction.Normalize();
