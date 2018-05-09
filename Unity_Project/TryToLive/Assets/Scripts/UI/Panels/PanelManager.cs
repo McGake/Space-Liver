@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PanelManager : MonoBehaviour {
 
-
+    public static PanelManager panelManager;
 
     public List<BasePanel> allPanels = new List<BasePanel>();
 
 
     private void Awake() {
+        if (panelManager == null)
+            panelManager = this;
+        else {
+            Destroy(this);
+        }
+
         BasePanel[] panels = GetComponentsInChildren<BasePanel>();
 
         int count = panels.Length;
@@ -20,13 +26,13 @@ public class PanelManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.I)) {
-            TogglePanel(BasePanel.PanelType.Inventory);
-        }
+        //if (Input.GetKeyDown(KeyCode.I)) {
+        //    TogglePanel(BasePanel.PanelType.Inventory);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.M)) {
-            TogglePanel(BasePanel.PanelType.Map);
-        }
+        //if (Input.GetKeyDown(KeyCode.M)) {
+        //    TogglePanel(BasePanel.PanelType.Map);
+        //}
     }
 
     public void OpenPanel(string panelName) {

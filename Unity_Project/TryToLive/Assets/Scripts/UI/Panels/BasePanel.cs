@@ -9,6 +9,8 @@ public class BasePanel : MonoBehaviour {
         InGameMenu = 0,
         Inventory = 1,
         Map = 2,
+        Actions = 3,
+        Dialogue = 4,
     }
 
     [Header("Panel Type")]
@@ -37,13 +39,16 @@ public class BasePanel : MonoBehaviour {
     }
 
     public virtual void Open() {
+        if(enteranceTween != null)
+            enteranceTween.DOPlayForward();
 
-        enteranceTween.DOPlayForward();
         IsOpen = true;
     }
 
     public virtual void Close() {
-        enteranceTween.DOPlayBackwards();
+        if(enteranceTween != null)
+            enteranceTween.DOPlayBackwards();
+
         IsOpen = false;
 
     }
