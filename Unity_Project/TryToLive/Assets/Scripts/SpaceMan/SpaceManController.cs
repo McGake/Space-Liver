@@ -61,8 +61,6 @@ public class SpaceManController : MonoBehaviour {
         direction.x = -vertical2;
         if ((Mathf.Abs(horizontal2) + Mathf.Abs(vertical2)) > .1f)
         {
-
-
             direction.Normalize();
 
             angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
@@ -73,7 +71,5 @@ public class SpaceManController : MonoBehaviour {
 
             rightArmJoint.transform.rotation = Quaternion.Slerp(rightArmJoint.transform.rotation, targetRotation, armRotSpeed * Time.deltaTime);
         }
-
-
     }
 }
