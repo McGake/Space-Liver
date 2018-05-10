@@ -24,6 +24,7 @@ public class ActionDatabaseEditor : Editor {
     private ActionData DrawActionData(ActionData entry) {
         entry.actionName = EditorGUILayout.TextField("Action Name", entry.actionName);
         entry.dialogue = EditorGUILayout.TextField("Dialog", entry.dialogue);
+        entry.testSimpleEffect = EditorHelper.EnumPopup("Effect Type", entry.testSimpleEffect);
 
 
         return entry;

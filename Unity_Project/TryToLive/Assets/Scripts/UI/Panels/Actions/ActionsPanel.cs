@@ -55,10 +55,10 @@ public class ActionsPanel : BasePanel {
 
             for(int x = 0; x < actions.Count; x++)
             {
-                Debug.Log(actions[x].actionNameText.text + " " + actionsDatabase.actionData[randomEntry].actionName);
+                //Debug.Log(actions[x].actionNameText.text + " " + actionsDatabase.actionData[randomEntry].actionName);
                 if (actions[x].actionNameText.text == actionsDatabase.actionData[randomEntry].actionName)
                 {
-                    Debug.Log("messed up here");
+                    //Debug.Log("messed up here");
                     randomEntry = Random.Range(0, actionsDatabase.actionData.Count);
                     x = 0;
                 }
@@ -71,7 +71,9 @@ public class ActionsPanel : BasePanel {
 
             ActionEntry entryScript = newEntry.GetComponent<ActionEntry>();
 
-            entryScript.Initialize(actionsDatabase.actionData[randomEntry]);
+            GameEffect testEfect = EffectFactory.CreateGameEffect(actionsDatabase.actionData[i].testSimpleEffect);
+
+            entryScript.Initialize(actionsDatabase.actionData[randomEntry], testEfect);
             actions.Add(entryScript);
 
         }

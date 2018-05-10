@@ -19,4 +19,5 @@ public class ActionsDatabse : ScriptableObject {
 public class ActionData {
     public string actionName;
     public string dialogue;
+    public GameEffect.EffectType testSimpleEffect;
 }
