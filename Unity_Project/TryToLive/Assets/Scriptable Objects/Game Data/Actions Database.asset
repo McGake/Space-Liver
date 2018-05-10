@@ -14,6 +14,10 @@ MonoBehaviour:
   actionData:
   - actionName: Flail
     dialogue: You flail about with great gusto! I consider this a victory.
+  - actionName: Dont Explode
+    dialogue: You dont explode
+  - actionName: Explode
+    dialogue: you explode
   - actionName: Cry
     dialogue: Your tears are bitter.
   - actionName: Hope

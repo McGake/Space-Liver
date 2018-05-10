@@ -245,6 +245,11 @@ MonoBehaviour:
   actionsDatabase: {fileID: 11400000, guid: 5d64e67b7aa477c408adac7aa9a593aa, type: 2}
   actionEntryTemplate: {fileID: 427515571}
   actionEntryHolder: {fileID: 1697439600}
+  spriteButtons:
+  - {fileID: 21300000, guid: dc6ed71d4f209ed4392f18da295fd430, type: 3}
+  - {fileID: 21300000, guid: 8f03c98f65f3e9f41b904cf9c17fedea, type: 3}
+  - {fileID: 21300000, guid: fcef952f4a1bd5b43a457a3766f7f42d, type: 3}
+  - {fileID: 21300000, guid: af10ebc2fd84f02459d6e75ab15a8379, type: 3}
 --- !u!1 &427515568
 GameObject:
   m_ObjectHideFlags: 0

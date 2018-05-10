@@ -10,7 +10,7 @@ public class SpaceManController : MonoBehaviour {
     public GameObject rightArmJoint;
     public GameObject leftArmJoint;
 
-    public GameObject bloopTester;
+    //public GameObject bloopTester;
 
 	// Use this for initialization
 	void Awake () {
@@ -53,6 +53,10 @@ public class SpaceManController : MonoBehaviour {
     {
         horizontal2 = Input.GetAxis("Horizontal2");
         vertical2 = Input.GetAxis("Vertical2");
+        //tempPosBloop.y = transform.position.y + -vertical2;
+        //tempPosBloop.x = transform.position.x + horizontal2;
+        //bloopTester.transform.position = tempPosBloop;
+
         direction.y = horizontal2;
         direction.x = -vertical2;
         direction.Normalize();
