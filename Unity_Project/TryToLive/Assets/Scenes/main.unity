@@ -530,7 +530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1236719376
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330408794}
   m_LocalRotation: {x: -0, y: -0, z: -0.88065135, w: 0.47376505}
-  m_LocalPosition: {x: -0.09399986, y: 0.13799995, z: 0.99395007}
+  m_LocalPosition: {x: -0.09399986, y: 0.13799995, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1567774844}
@@ -776,6 +776,7 @@ MonoBehaviour:
   rightArmJoint: {fileID: 2008528047}
   leftArmJoint: {fileID: 639570706}
   bloopTester: {fileID: 1236719375}
+  cam: {fileID: 1133283161}
   armRotSpeed: 4
 --- !u!50 &1567774847
 Rigidbody2D:
@@ -793,7 +794,7 @@ Rigidbody2D:
   m_AngularDrag: 0.001
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
