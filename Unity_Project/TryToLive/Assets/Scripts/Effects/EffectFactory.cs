@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class EffectFactory  {
 
@@ -31,8 +32,15 @@ public static class EffectFactory  {
 
         GameObject.Destroy(activeParticles, 3f);
 
+        SoundManager.StopMusic();
+        SoundManager.PlaySound("Splat");
+        
+
         if(player != null) {
             GameObject.Destroy(player);
+
+
+            SoundManager.soundManager.StartCoroutine(Gameover());
 
             //Debug.Log("Player Dead");
         }
@@ -40,5 +48,11 @@ public static class EffectFactory  {
     }
 
 
+    private static IEnumerator Gameover() {
+        yield return new WaitForSeconds(2f);
+        SoundManager.RestartMusic("Level");
+
+        SceneManager.LoadScene("GameOver");
+    }
 
 }
