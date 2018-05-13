@@ -333,6 +333,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114874376859379692, guid: 7ba89d938f24a86478a328e75b5654e9,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114874376859379692, guid: 7ba89d938f24a86478a328e75b5654e9,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 223728670679295046, guid: 7ba89d938f24a86478a328e75b5654e9,
         type: 2}
       propertyPath: m_Camera

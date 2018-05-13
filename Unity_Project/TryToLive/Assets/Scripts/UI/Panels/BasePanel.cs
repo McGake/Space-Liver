@@ -11,6 +11,7 @@ public class BasePanel : MonoBehaviour {
         Map = 2,
         Actions = 3,
         Dialogue = 4,
+        O2 = 5,
     }
 
     [Header("Panel Type")]
