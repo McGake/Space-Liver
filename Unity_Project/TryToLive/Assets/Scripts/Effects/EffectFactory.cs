@@ -16,6 +16,9 @@ public static class EffectFactory  {
             case GameEffect.EffectType.VentAir:
                 newEffect.onActivate = VentAir;
                 break;
+            case GameEffect.EffectType.HoldBreath:
+                newEffect.onActivate = HoldBreath;
+                break;
         }
 
 
@@ -24,7 +27,7 @@ public static class EffectFactory  {
     }
 
 
-    private static void KillPlayer() {
+   public static void KillPlayer() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         
@@ -79,18 +82,46 @@ public static class EffectFactory  {
         Transform ventAirLoc = player.GetComponent<SpaceManInfo>().ventAirLoc;
         Vector2 ventAirPos = ventAirLoc.localPosition;
         ParticleSystem pS = ventAirLoc.GetComponent<ParticleSystem>();
+       
+        O2Panel o2Panel =  GameObject.Find("O2 Panel").GetComponent<O2Panel>();
 
         pS.Play();
-        
+        o2Panel.VentO2();
+
+
         while (Time.time < endTime)
         {
             //rb2d.AddForceAtPosition(ventAirLoc.right * 5000 * Time.deltaTime, ventAirPos);
             ventAirPos = ventAirLoc.localPosition;
             
             rb2d.AddRelativeForce(new Vector2(800 * Time.deltaTime, 0));
+
             yield return null;
+            
         }
         pS.Stop();
+    }
+
+    public static void HoldBreath()
+    {
+        SoundManager.soundManager.StartCoroutine(HoldBreathOngoing());
+    }
+
+    public static IEnumerator HoldBreathOngoing()
+    {
+        O2Panel o2Panel = GameObject.Find("O2 Panel").GetComponent<O2Panel>();
+
+        o2Panel.Change02Speed(20);
+
+        yield return new WaitForSeconds(1f);
+
+        o2Panel.Change02Speed(-20.08f);
+
+        yield return new WaitForSeconds(1f);
+
+        o2Panel.Change02Speed(.08f);
+
+        yield return null;
     }
 
 }

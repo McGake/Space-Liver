@@ -10,7 +10,8 @@ public class GameEffect {
         None = 0,
         SpawnObject = 1,
         KillPlayer = 2,
-        VentAir = 3
+        VentAir = 3,
+        HoldBreath = 4,
 
     }
 

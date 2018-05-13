@@ -43,7 +43,7 @@ public class ActionEntry : MonoBehaviour {
 
         yield return new WaitForSeconds(effects[0].delay);
 
-        dialoguePanel.HideDialoge();
+        
 
         if(effects != null) {
             ActivateAllEffects();
@@ -58,6 +58,10 @@ public class ActionEntry : MonoBehaviour {
         else {
             Debug.Log(" 0 effects");
         }
+
+        yield return new WaitForSeconds(2.5f);
+
+        dialoguePanel.HideDialoge();
 
     }
 

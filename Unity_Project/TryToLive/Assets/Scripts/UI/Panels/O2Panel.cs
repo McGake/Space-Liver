@@ -28,6 +28,11 @@ public class O2Panel : BasePanel {
         o2Timer.ModifyDuration(-0.08f);
     }
 
+    public void Change02Speed(float spChange = -.1f)
+    {
+        o2Timer.ModifyDuration(spChange);
+    }
+
     private void Update() {
         if(active && o2Timer != null) {
             o2Timer.UpdateClock();
@@ -44,7 +49,7 @@ public class O2Panel : BasePanel {
 
         if(currentO2 <= 0) {
             active = false;
-            Debug.Log("You died");
+            EffectFactory.KillPlayer();
         }
     }
 

@@ -15,18 +15,28 @@ MonoBehaviour:
   - actionName: Flail
     dialogue: You flail about with great gusto! I consider this a victory.
     testSimpleEffect: 1
+    delay: 3
+  - actionName: Hold Breath
+    dialogue: '"Hhhhap............"'
+    testSimpleEffect: 4
+    delay: 0.1
   - actionName: Dont Explode
     dialogue: You dont explode
     testSimpleEffect: 2
+    delay: 3
   - actionName: Explode
     dialogue: you explode
     testSimpleEffect: 2
+    delay: 3
   - actionName: Cry
     dialogue: Your tears are bitter.
     testSimpleEffect: 2
+    delay: 3
   - actionName: Hope
     dialogue: Against all odds, you dare to hope. It's somewhat disapointing.
     testSimpleEffect: 1
+    delay: 3
   - actionName: Vent Air
     dialogue: vent air
     testSimpleEffect: 3
+    delay: 0.1
