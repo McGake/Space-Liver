@@ -51,18 +51,20 @@ public class ActionsPanel : BasePanel {
 
     public void PopulateActions() {
         for (int i = 0; i < 4; i++) {
+
             int randomEntry = Random.Range(0, actionsDatabase.actionData.Count);
 
             for(int x = 0; x < actions.Count; x++)
             {
                 //Debug.Log(actions[x].actionNameText.text + " " + actionsDatabase.actionData[randomEntry].actionName);
-                if (actions[x].actionNameText.text == actionsDatabase.actionData[randomEntry].actionName)
+                while (actions[x].actionNameText.text == actionsDatabase.actionData[randomEntry].actionName)
                 {
                     //Debug.Log("messed up here");
                     randomEntry = Random.Range(0, actionsDatabase.actionData.Count);
                     x = 0;
                 }
             }
+            Debug.Log("actions " + i + "is" + actionsDatabase.actionData[randomEntry].actionName);
             
             GameObject newEntry = Instantiate(actionEntryTemplate.gameObject) as GameObject;
             newEntry.transform.SetParent(actionEntryHolder, false);
@@ -70,8 +72,7 @@ public class ActionsPanel : BasePanel {
             newEntry.SetActive(true);
 
             ActionEntry entryScript = newEntry.GetComponent<ActionEntry>();
-
-            GameEffect testEfect = EffectFactory.CreateGameEffect(actionsDatabase.actionData[i].testSimpleEffect);
+            GameEffect testEfect = EffectFactory.CreateGameEffect(actionsDatabase.actionData[randomEntry].testSimpleEffect);
 
             entryScript.Initialize(actionsDatabase.actionData[randomEntry], testEfect);
             actions.Add(entryScript);
