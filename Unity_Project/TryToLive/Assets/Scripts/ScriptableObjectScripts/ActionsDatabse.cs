@@ -20,4 +20,5 @@ public class ActionData {
     public string actionName;
     public string dialogue;
     public GameEffect.EffectType testSimpleEffect;
+    public float delay = 3f;
 }

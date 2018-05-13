@@ -18,10 +18,12 @@ public class GameEffect {
 
     public Action onCleanUp;
     public Action onActivate;
+    public float delay;
 
 
-    public GameEffect(EffectType effectType, Action onActivate = null, Action onCleanUp = null) {
+    public GameEffect(EffectType effectType, float delay = 3f, Action onActivate = null, Action onCleanUp = null) {
         this.effectType = effectType;
+        this.delay = delay;
 
         if (onActivate != null) {
             this.onActivate = onActivate;

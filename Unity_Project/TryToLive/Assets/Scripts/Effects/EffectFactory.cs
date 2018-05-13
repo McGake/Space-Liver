@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public static class EffectFactory  {
 
 
-    public static GameEffect CreateGameEffect(GameEffect.EffectType type) {
-        GameEffect newEffect = new GameEffect(type);
+    public static GameEffect CreateGameEffect(GameEffect.EffectType type, float delay = 3f) {
+        GameEffect newEffect = new GameEffect(type, delay);
         
         switch (type) {
             case GameEffect.EffectType.KillPlayer:
@@ -58,13 +58,39 @@ public static class EffectFactory  {
         SceneManager.LoadScene("GameOver");
     }
 
+
+    
+
     private static void VentAir()
     {
         Debug.Log("air vented");
+  
+        SoundManager.soundManager.StartCoroutine(VentAirOngoing());
+    }
+
+    private static IEnumerator VentAirOngoing()
+    {
+        float endTime;
+        float duration = 2.5f;
+        endTime = Time.time + duration;
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Rigidbody2D rb2d = player.GetComponent<Rigidbody2D>();
         Transform ventAirLoc = player.GetComponent<SpaceManInfo>().ventAirLoc;
-        rb2d.AddForceAtPosition(new Vector2(1000, 0), player.GetComponent<SpaceManInfo>().ventAirLoc.position);
+        Vector2 ventAirPos = ventAirLoc.localPosition;
+        ParticleSystem pS = ventAirLoc.GetComponent<ParticleSystem>();
+
+        pS.Play();
+        
+        while (Time.time < endTime)
+        {
+            //rb2d.AddForceAtPosition(ventAirLoc.right * 5000 * Time.deltaTime, ventAirPos);
+            ventAirPos = ventAirLoc.localPosition;
+            
+            rb2d.AddRelativeForce(new Vector2(800 * Time.deltaTime, 0));
+            yield return null;
+        }
+        pS.Stop();
     }
 
 }

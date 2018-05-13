@@ -72,7 +72,7 @@ public class ActionsPanel : BasePanel {
             newEntry.SetActive(true);
 
             ActionEntry entryScript = newEntry.GetComponent<ActionEntry>();
-            GameEffect testEfect = EffectFactory.CreateGameEffect(actionsDatabase.actionData[randomEntry].testSimpleEffect);
+            GameEffect testEfect = EffectFactory.CreateGameEffect(actionsDatabase.actionData[randomEntry].testSimpleEffect, actionsDatabase.actionData[randomEntry].delay);
 
             entryScript.Initialize(actionsDatabase.actionData[randomEntry], testEfect);
             actions.Add(entryScript);
