@@ -12,6 +12,9 @@ public class GameEffect {
         KillPlayer = 2,
         VentAir = 3,
         HoldBreath = 4,
+        Cry = 5,
+        Explode = 6,
+        Flail = 7,
 
     }
 

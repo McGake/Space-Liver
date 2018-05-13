@@ -19,6 +19,18 @@ public static class EffectFactory  {
             case GameEffect.EffectType.HoldBreath:
                 newEffect.onActivate = HoldBreath;
                 break;
+
+            case GameEffect.EffectType.Cry:
+                newEffect.onActivate = Cry;
+                break;
+
+            case GameEffect.EffectType.Explode:
+                newEffect.onActivate = Explode;
+                break;
+
+            case GameEffect.EffectType.Flail:
+                newEffect.onActivate = Flail;
+                break;
         }
 
 
@@ -30,7 +42,8 @@ public static class EffectFactory  {
    public static void KillPlayer() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        
+        if (player == null)
+            return;
 
         GameObject loadedParticles = Resources.Load("Particles/Blood Poof") as GameObject;
 
@@ -51,6 +64,30 @@ public static class EffectFactory  {
             //Debug.Log("Player Dead");
         }
             
+    }
+
+    public static void Cry() {
+        SoundManager.PlaySound("Cry", 1.5f);
+    }
+
+    public static void Explode() {
+        SoundManager.PlaySound("Splosion");
+
+        O2Panel o2Panel = GameObject.Find("O2 Panel").GetComponent<O2Panel>();
+
+        o2Panel.VentO2();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        player.GetComponent<SpaceManInfo>().flames.Play();
+
+
+    }
+
+    public static void Flail() {
+        Rigidbody2D playerBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+
+        playerBody.angularVelocity += 700f;
     }
 
 
@@ -91,6 +128,10 @@ public static class EffectFactory  {
 
         while (Time.time < endTime)
         {
+            if (player == null || ventAirPos == null)
+                break;
+
+
             //rb2d.AddForceAtPosition(ventAirLoc.right * 5000 * Time.deltaTime, ventAirPos);
             ventAirPos = ventAirLoc.localPosition;
             
@@ -99,7 +140,9 @@ public static class EffectFactory  {
             yield return null;
             
         }
-        pS.Stop();
+
+        if(pS != null)
+            pS.Stop();
     }
 
     public static void HoldBreath()
@@ -112,6 +155,8 @@ public static class EffectFactory  {
         O2Panel o2Panel = GameObject.Find("O2 Panel").GetComponent<O2Panel>();
 
         o2Panel.Change02Speed(20);
+
+        SoundManager.PlaySound("Gasp");
 
         yield return new WaitForSeconds(1f);
 

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ActionsPanel : BasePanel {
 
     public ActionsDatabse actionsDatabase;
     public ActionEntry actionEntryTemplate;
     public RectTransform actionEntryHolder;
+    public DOTweenAnimation moveDown;
 
     private List<ActionEntry> actions = new List<ActionEntry>();
 
@@ -25,6 +27,10 @@ public class ActionsPanel : BasePanel {
     void Update()
     {
         CheckInput();  
+    }
+
+    public void PlayMoveDown() {
+        moveDown.DOPlayForwardById("MoveDown");
     }
 
     private void CheckInput()
@@ -74,7 +80,7 @@ public class ActionsPanel : BasePanel {
             ActionEntry entryScript = newEntry.GetComponent<ActionEntry>();
             GameEffect testEfect = EffectFactory.CreateGameEffect(actionsDatabase.actionData[randomEntry].testSimpleEffect, actionsDatabase.actionData[randomEntry].delay);
 
-            entryScript.Initialize(actionsDatabase.actionData[randomEntry], testEfect);
+            entryScript.Initialize(actionsDatabase.actionData[randomEntry], testEfect, this);
             actions.Add(entryScript);
 
         }

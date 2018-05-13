@@ -34,7 +34,7 @@ public class SpaceManController : MonoBehaviour {
     {
         horizontal = Input.GetAxis("Horizontal");
 
-        rb2D.angularVelocity = horizontal * -100;
+        rb2D.angularVelocity += horizontal * -50;
 
     }
 

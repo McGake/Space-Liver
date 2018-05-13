@@ -14,29 +14,28 @@ MonoBehaviour:
   actionData:
   - actionName: Flail
     dialogue: You flail about with great gusto! I consider this a victory.
-    testSimpleEffect: 1
-    delay: 3
+    testSimpleEffect: 7
+    delay: 1
   - actionName: Hold Breath
-    dialogue: '"Hhhhap............"'
+    dialogue: "You hold your breath.  For 1 whole second.   Now you\u2019re winded.
+      Great plan.  "
     testSimpleEffect: 4
     delay: 0.1
-  - actionName: Dont Explode
-    dialogue: You dont explode
-    testSimpleEffect: 2
-    delay: 3
   - actionName: Explode
-    dialogue: you explode
-    testSimpleEffect: 2
-    delay: 3
+    dialogue: 'Through sheer force of will you cause your body to suffocate slightly
+      faster.   Also, you catch fire. '
+    testSimpleEffect: 6
+    delay: 2
   - actionName: Cry
     dialogue: Your tears are bitter.
-    testSimpleEffect: 2
-    delay: 3
+    testSimpleEffect: 5
+    delay: 0
   - actionName: Hope
     dialogue: Against all odds, you dare to hope. It's somewhat disapointing.
     testSimpleEffect: 1
     delay: 3
   - actionName: Vent Air
-    dialogue: vent air
+    dialogue: " You vent some of your precious O2 to give yourself a boost\u2026 Look
+      how fast you can go!"
     testSimpleEffect: 3
     delay: 0.1
