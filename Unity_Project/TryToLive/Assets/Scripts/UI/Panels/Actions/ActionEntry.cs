@@ -35,13 +35,13 @@ public class ActionEntry : MonoBehaviour {
     }
 
 
-    private IEnumerator ShowDialog() {
+    private IEnumerator ShowDialog(float delay = 3f) {
         //dialog.gameObject.SetActive(true);
         DialoguePanel dialoguePanel = PanelManager.panelManager.GetPanelByType(BasePanel.PanelType.Dialogue) as DialoguePanel;
 
         dialoguePanel.OpenAndShow(dialogue);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(effects[0].delay);
 
         dialoguePanel.HideDialoge();
 

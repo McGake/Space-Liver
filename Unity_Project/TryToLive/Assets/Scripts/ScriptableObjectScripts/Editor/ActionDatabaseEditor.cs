@@ -25,7 +25,7 @@ public class ActionDatabaseEditor : Editor {
         entry.actionName = EditorGUILayout.TextField("Action Name", entry.actionName);
         entry.dialogue = EditorGUILayout.TextField("Dialog", entry.dialogue);
         entry.testSimpleEffect = EditorHelper.EnumPopup("Effect Type", entry.testSimpleEffect);
-
+        entry.delay = EditorGUILayout.FloatField("delay", entry.delay);
 
         return entry;
     }
