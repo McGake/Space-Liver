@@ -8,10 +8,13 @@ public static class EffectFactory  {
 
     public static GameEffect CreateGameEffect(GameEffect.EffectType type) {
         GameEffect newEffect = new GameEffect(type);
-
+        
         switch (type) {
             case GameEffect.EffectType.KillPlayer:
                 newEffect.onActivate = KillPlayer;
+                break;
+            case GameEffect.EffectType.VentAir:
+                newEffect.onActivate = VentAir;
                 break;
         }
 
@@ -24,7 +27,7 @@ public static class EffectFactory  {
     private static void KillPlayer() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        //Debug.Log("Killing Player");
+        
 
         GameObject loadedParticles = Resources.Load("Particles/Blood Poof") as GameObject;
 
@@ -35,7 +38,7 @@ public static class EffectFactory  {
         SoundManager.StopMusic();
         SoundManager.PlaySound("Splat");
         
-
+        
         if(player != null) {
             GameObject.Destroy(player);
 
@@ -53,6 +56,15 @@ public static class EffectFactory  {
         SoundManager.RestartMusic("Level");
 
         SceneManager.LoadScene("GameOver");
+    }
+
+    private static void VentAir()
+    {
+        Debug.Log("air vented");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Rigidbody2D rb2d = player.GetComponent<Rigidbody2D>();
+        Transform ventAirLoc = player.GetComponent<SpaceManInfo>().ventAirLoc;
+        rb2d.AddForceAtPosition(new Vector2(1000, 0), player.GetComponent<SpaceManInfo>().ventAirLoc.position);
     }
 
 }

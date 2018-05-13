@@ -20,8 +20,6 @@ public class ActionEntry : MonoBehaviour {
     public void Initialize(ActionData actionData, GameEffect effect) {
         Initialize(actionData);
         effects.Add(effect);
-
-        Debug.Log(effect + " has been set");
     }
 
     public void Initialize(ActionData actionData, List<GameEffect> effects = null) {

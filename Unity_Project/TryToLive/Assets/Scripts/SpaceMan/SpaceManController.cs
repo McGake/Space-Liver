@@ -84,7 +84,7 @@ public class SpaceManController : MonoBehaviour {
             direction.x = mousePos.x - transform.position.x;
 
 
-            Debug.Log((mousePos.x - transform.position.x) + " / " + (mousePos.y - transform.position.y));
+            //Debug.Log((mousePos.x - transform.position.x) + " / " + (mousePos.y - transform.position.y));
            
 
             tempPosBloop.x = direction.x;
